@@ -1,0 +1,26 @@
+// Authentication utility functions
+
+export const isAuthenticated = () => {
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
+  return !!token && !!user;
+};
+
+export const getUser = () => {
+  const user = localStorage.getItem("user");
+  return user ? JSON.parse(user) : null;
+};
+
+export const getUserRole = () => {
+  const user = getUser();
+  return user?.role || null;
+};
+
+export const getAuthToken = () => {
+  return localStorage.getItem("token");
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+};

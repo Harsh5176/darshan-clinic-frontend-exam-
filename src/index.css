@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  background-color: #355872;
+  color: #B0E4CC;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input, button {
+  font-family: inherit;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.card {
+  background-color: #355872;
+  border: 1px solid #285A48;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.btn-primary {
+  background-color: #285A48;
+  color: #B0E4CC;
+}
+
+.btn-primary:hover {
+  background-color: #408A71;
+}
