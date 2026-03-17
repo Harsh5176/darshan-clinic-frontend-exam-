@@ -48,6 +48,11 @@ function DoctorDashboard() {
 
   const handleSubmit = async () => {
     if (!selected) return;
+    const allowedStatuses = ["in_progress", "done"];
+    if (!allowedStatuses.includes(selected.status)) {
+      setMsg("Prescription can only be added for in-progress or completed appointments");
+      return;
+    }
     if (!medicine || !dosage || !duration) {
       setMsg("Please fill in medicine name, dosage, and duration");
       return;
@@ -205,10 +210,17 @@ function DoctorDashboard() {
             <Button
               variant="contained"
               onClick={handleSubmit}
-              disabled={submitting}
-              style={{ backgroundColor: "#355872", color: "#F7F8F0", textTransform: "none", fontWeight: "600" }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = "#7AAACE"}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = "#355872"}
+              disabled={submitting || !["in_progress", "done"].includes(selected.status)}
+              style={{ 
+                backgroundColor: !["in_progress", "done"].includes(selected.status) ? "#9CD5FF" : "#355872", 
+                color: "#F7F8F0", 
+                textTransform: "none", 
+                fontWeight: "600",
+                cursor: !["in_progress", "done"].includes(selected.status) ? "not-allowed" : "pointer"
+              }}
+              onMouseEnter={e => !["in_progress", "done"].includes(selected.status) ? {} : e.currentTarget.style.backgroundColor = "#7AAACE"}
+              onMouseLeave={e => !["in_progress", "done"].includes(selected.status) ? {} : e.currentTarget.style.backgroundColor = "#355872"}
+              title={!["in_progress", "done"].includes(selected.status) ? "Prescription only available for in-progress or done appointments" : ""}
             >
               {submitting ? "Saving..." : "Save Prescription & Report"}
             </Button>
