@@ -16,13 +16,11 @@ function DoctorDashboard() {
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState(null);
 
-  // prescription fields
   const [medicine, setMedicine] = useState("");
   const [dosage, setDosage] = useState("");
   const [duration, setDuration] = useState("");
   const [notes, setNotes] = useState("");
 
-  // report fields
   const [diagnosis, setDiagnosis] = useState("");
   const [testRec, setTestRec] = useState("");
   const [remarks, setRemarks] = useState("");

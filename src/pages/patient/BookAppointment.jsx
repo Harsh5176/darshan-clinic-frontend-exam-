@@ -30,7 +30,6 @@ function BookAppointment() {
   const [snackMsg, setSnackMsg] = useState("");
   const [snackType, setSnackType] = useState("success");
 
-  // today's date in YYYY-MM-DD for the min value
   const today = new Date().toISOString().split("T")[0];
 
   const handleSubmit = async () => {

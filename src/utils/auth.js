@@ -1,5 +1,3 @@
-// Authentication utility functions
-
 export const isAuthenticated = () => {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");

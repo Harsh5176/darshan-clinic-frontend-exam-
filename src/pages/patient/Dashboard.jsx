@@ -24,7 +24,6 @@ function PatientDashboard({ onViewDetail }) {
     return "#9CD5FF";
   };
 
-  // show only latest 3
   const recent = appointments.slice(0, 3);
 
   return (
